@@ -1,30 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import SimliAgent from "@/app/SimliAgent";
-import DottedFace from "./Components/DottedFace";
-import SimliHeaderLogo from "./Components/Logo";
-import Navbar from "./Components/Navbar";
-import Image from "next/image";
+import React from "react";
+import SimliHeaderLogo from "../Components/Logo";
+import Navbar from "../Components/Navbar";
+import { useState } from "react";
 
-const Demo: React.FC = () => {
-  const [showDottedFace, setShowDottedFace] = useState(true);
+export default function About() {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const onStart = () => {
-    console.log("Setting setshowDottedface to false...");
-    setShowDottedFace(false);
-  };
-
-  const onClose = () => {
-    console.log("Setting setshowDottedface to true...");
-    setShowDottedFace(true);
-  };
-
+  
   return (
     <div className="bg-black min-h-screen flex flex-col items-center font-abc-repro font-normal text-sm text-white p-8">
       <SimliHeaderLogo />
       <Navbar />
-
+      
       {/* Hamburger Menu */}
       <div className="absolute top-[32px] right-[32px] z-50">
         <button 
@@ -59,31 +46,22 @@ const Demo: React.FC = () => {
               Telegram
             </a>
             <a
-              href="/about"
+              href="/"
               className="block px-4 py-2 text-white hover:bg-gray-800 cursor-pointer"
             >
-              About
+              Home
             </a>
           </div>
         )}
       </div>
-      <div className="flex flex-col items-center gap-6 bg-effect15White p-6 pb-[40px] rounded-xl w-full">
-        <div>
-          {showDottedFace && <DottedFace />}
-          <SimliAgent
-            onStart={onStart}
-            onClose={onClose}
-          />
+      
+      {/* About Content */}
+      <div className="flex flex-col items-center mt-20 max-w-[600px] text-center">
+        <h1 className="text-3xl font-bold mb-8">About</h1>
+        <div className="bg-effect15White p-8 rounded-xl">
+          <p className="text-lg">This is a test project with BSF to learn about new AI features</p>
         </div>
-      </div>
-
-      <div className="max-w-[350px] font-thin flex flex-col items-center ">
-        <span className="font-bold mb-[8px] leading-5 ">
-          Welcome to my AI Avatar
-        </span>
       </div>
     </div>
   );
-};
-
-export default Demo;
+}

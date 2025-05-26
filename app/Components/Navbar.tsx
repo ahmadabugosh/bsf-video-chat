@@ -23,6 +23,14 @@ export default function Navbar() {
               Telegram
             </a>
           </li>
+          <li>
+            <a
+              href="/about"
+              className="block cursor-pointer py-2 px-3 text-gray-900 rounded   md:border-0  md:p-0 dark:text-white hover:underline    "
+            >
+              About
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
