@@ -5,10 +5,10 @@ import DottedFace from "./Components/DottedFace";
 import SimliHeaderLogo from "./Components/Logo";
 import Navbar from "./Components/Navbar";
 import Image from "next/image";
-import GitHubLogo from "@/media/github-mark-white.svg";
 
 const Demo: React.FC = () => {
   const [showDottedFace, setShowDottedFace] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const onStart = () => {
     console.log("Setting setshowDottedface to false...");
@@ -25,16 +25,41 @@ const Demo: React.FC = () => {
       <SimliHeaderLogo />
       <Navbar />
 
-      <div className="absolute top-[32px] right-[32px]">
-        <text
-          onClick={() => {
-            window.open("https://github.com/simliai/create-simli-agent");
-          }}
-          className="font-bold cursor-pointer mb-8 text-xl leading-8"
+      {/* Hamburger Menu */}
+      <div className="absolute top-[32px] right-[32px] z-50">
+        <button 
+          onClick={() => setMenuOpen(!menuOpen)} 
+          className="flex flex-col justify-center items-center w-10 h-10 space-y-1.5 cursor-pointer"
+          aria-label="Toggle menu"
         >
-          <Image className="w-[20px] inline mr-2" src={GitHubLogo} alt="" />
-          create-simli-agent
-        </text>
+          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+          <span className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${menuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+        </button>
+        
+        {/* Dropdown Menu */}
+        {menuOpen && (
+          <div className="absolute top-12 right-0 w-48 bg-gray-900 rounded-md shadow-lg py-2 z-50 border border-gray-700">
+            <a
+              onClick={() => {
+                window.open("https://twitter.com/grantolfthegrey");
+                setMenuOpen(false);
+              }}
+              className="block px-4 py-2 text-white hover:bg-gray-800 cursor-pointer"
+            >
+              X / Twitter
+            </a>
+            <a
+              onClick={() => {
+                window.open("https://web.telegram.org/a/#7743218430");
+                setMenuOpen(false);
+              }}
+              className="block px-4 py-2 text-white hover:bg-gray-800 cursor-pointer"
+            >
+              Telegram
+            </a>
+          </div>
+        )}
       </div>
       <div className="flex flex-col items-center gap-6 bg-effect15White p-6 pb-[40px] rounded-xl w-full">
         <div>
@@ -48,24 +73,7 @@ const Demo: React.FC = () => {
 
       <div className="max-w-[350px] font-thin flex flex-col items-center ">
         <span className="font-bold mb-[8px] leading-5 ">
-          {" "}
-          Create Simli Agent is a starter repo for creating visual avatars with
-          Simli{" "}
-        </span>
-        <ul className="list-decimal list-inside max-w-[350px] ml-[6px] mt-2">
-          <li className="mb-1">
-            Fill in your Simli API keys in .env file.
-          </li>
-          <li className="mb-1">
-            Create your Simli avatar at app.simli.com
-          </li>
-          <li className="mb-1">
-            Copy code output from app.simli.com and paste in <code>app/SimliAgent.tsx</code>.
-          </li>
-        </ul>
-        <span className=" mt-[16px]">
-          You can now deploy this app to Vercel, or incorporate it as part of
-          your existing project.
+          Welcome to my AI Avatar
         </span>
       </div>
     </div>

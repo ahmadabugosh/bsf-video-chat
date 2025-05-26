@@ -35,22 +35,16 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
     // 3- PASTE YOUR CODE OUTPUT FROM SIMLI BELOW 👇
     /**********************************/
 
-    const response = await fetch("https://api.simli.ai/startE2ESession", {
-      method: "POST",
+    const response = await fetch("https://api.simli.ai/session/7098b4b7-142c-4789-8121-e6de89d91779/gAAAAABoM4OwZXGRFniqqzw-nQBze97g1Kg075e9HcB-Mchz_gJvzDXgKlHR2QMrl54eNfLlE5CXSTLcFJ00W_SOeQgyFJ7fT85c7rGO0gzJ9A33tr0r2Bn7D5K5ghGVqh-5V6hLJbUy-RDLBcV1KW0C0X771LC1_54dASJxfi4nYwtwqK7tpkUxYKzv7HFJWtasxLTSQ0vGFXzTj1SKugVt0qP-WzLvWl-L5qH_vIu1fBhDENLpuk7e4p3cCXzpgu1c1ac8DHJkzvo0sQBMyb2tai-Tz0jiDwCZZi0bX5f71CSZVa0Gs9WiEMPOVmBZHYTHz24p9K4D1kY_ZOnAcjMNR4yG8TT9T5hwnhcyg5qhamkG-Nh67d5hDH2c82tdnEsKBqNgZauY2OmLsoLtCOlblFXHbB6a1A==", {
+      method: "GET",
       headers: {
-        "Content-Type": "application/json",
+          "Content-Type": "application/json",
+          "Accept": "application/json",
       },
-      body: JSON.stringify({
-        apiKey: SIMLI_API_KEY,
-        faceId: "",
-        voiceId: "",
-        firstMessage: "",
-        systemPrompt: "",
-      }),
-    });
-
-    const data = await response.json();
-    const roomUrl = data.roomUrl;
+  })
+  
+  const data = await response.json();
+  const roomUrl = data.roomUrl;
 
     /**********************************/
     
@@ -155,7 +149,7 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
               <IconSparkleLoader className="h-[20px] animate-loader" />
             ) : (
               <span className="font-abc-repro-mono font-bold w-[164px]">
-                Test Interaction
+                Start Chat
               </span>
             )}
           </button>

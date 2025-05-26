@@ -6,31 +6,21 @@ export default function Navbar() {
           <li>
             <a
               onClick={() => {
-                window.open("https://docs.simli.com/introduction");
+                window.open("https://twitter.com/grantolfthegrey");
               }}
               className="block cursor-pointer py-2 px-3 text-gray-900 rounded   md:border-0 md:p-0 dark:text-white hover:underline    "
             >
-              Documentation
+              X / Twitter
             </a>
           </li>
           <li>
             <a
               onClick={() => {
-                window.open("https://app.simli.com");
+                window.open("https://web.telegram.org/a/#7743218430");
               }}
               className="block cursor-pointer py-2 px-3 text-gray-900 rounded   md:border-0  md:p-0 dark:text-white hover:underline    "
             >
-              Create Avatar
-            </a>
-          </li>
-          <li>
-            <a
-              onClick={() => {
-                window.open("https://discord.gg/yQx49zNF4d");
-              }}
-              className="block cursor-pointer py-2 px-3 text-gray-900 rounded   md:border-0  md:p-0 dark:text-white hover:underline    "
-            >
-              Discord
+              Telegram
             </a>
           </li>
         </ul>
